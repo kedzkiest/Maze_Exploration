@@ -39,6 +39,9 @@ public class RunningEnemyController : MonoBehaviour
 
     private UIController UIController;
 
+    public float normalMoveSpeed;
+    public float chasingMoveSpeed;
+
     private readonly string[] deathReason =
     {
         "走り回る者に轢かれた",
@@ -123,6 +126,8 @@ public class RunningEnemyController : MonoBehaviour
 
         if (isChasing)
         {
+            agent.speed = chasingMoveSpeed;
+            
             if(Vector3.Distance(thisPos, playerPos) > sensingDistance ||
                Vector3.Angle(gameObject.transform.forward, playerPos - thisPos) > sensingFOV)
             {
@@ -146,6 +151,8 @@ public class RunningEnemyController : MonoBehaviour
         }
         else
         {
+            agent.speed = normalMoveSpeed;
+            
             if (agent.remainingDistance < 1.0f)
             {
                 currentDestinationIndex = Random.Range(0, waypointsList.Count);
