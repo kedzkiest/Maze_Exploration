@@ -11,7 +11,7 @@ public class ChaseMusicController : MonoBehaviour
 
     public AudioClip foundSE;
 
-    private GameObject[] enemies;
+    private List<GameObject> enemies;
     private List<GameObject> chasingEnemies = new List<GameObject>();
     private bool isChasing;
     
@@ -19,7 +19,7 @@ public class ChaseMusicController : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        enemies = GameObject.FindGameObjectsWithTag("Enemy").ToList<GameObject>();
     }
 
     private bool isCalledOnce;
@@ -29,7 +29,13 @@ public class ChaseMusicController : MonoBehaviour
         
         foreach (GameObject obj in enemies)
         {
-            if(obj.GetComponent<RunningEnemyController>().isChasing)
+            if (obj == null)
+            {
+                enemies.Remove(obj);
+                break;
+            }
+
+            if (obj.GetComponent<RunningEnemyController>().isChasing)
             {
                 if (!chasingEnemies.Contains(obj))
                 {
@@ -44,9 +50,18 @@ public class ChaseMusicController : MonoBehaviour
         
         if (chasingEnemies.Count > 0)
         {
-            if (!chasingEnemies.ElementAt(0).GetComponent<RunningEnemyController>().isChasing)
+            foreach(GameObject obj in chasingEnemies)
             {
-                chasingEnemies.RemoveAt(0);
+                if(obj == null)
+                {
+                    chasingEnemies.Remove(obj);
+                    break;
+                }
+                
+                if (!obj.GetComponent<RunningEnemyController>().isChasing)
+                {
+                    chasingEnemies.Remove(obj);
+                }
             }
         }
         

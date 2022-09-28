@@ -6,6 +6,7 @@ using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.AI;
 
 public class UIController : MonoBehaviour
 {
@@ -16,10 +17,13 @@ public class UIController : MonoBehaviour
     public Text lightText;
     public Text backCameraText;
     
-    public GameObject sliderGameObject;
-    private Slider stamina;
+    public Slider stamina;
     public Image staminaBar;
     public bool canDash;
+
+    public Slider destroy;
+    public Image destroyBar;
+    public bool canDestroy;
 
     public bool canEscape;
     public Image escapePanel;
@@ -36,6 +40,8 @@ public class UIController : MonoBehaviour
     private float time;
 
     private float t;
+
+    public Maze maze;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,8 +51,6 @@ public class UIController : MonoBehaviour
         
         player = GameObject.FindGameObjectWithTag("Player");
         goalLight = GameObject.FindGameObjectWithTag("Goal");
-
-        stamina = sliderGameObject.GetComponent<Slider>();
 
         canDash = true;
 
@@ -60,8 +64,9 @@ public class UIController : MonoBehaviour
         time += Time.deltaTime;
         timeText.text = "Time: " + time.ToString();
 
+        #region instruction on escape
         // when goal is near the player, an instruction pops up
-        if(Vector3.Distance(player.transform.position, goalLight.transform.position) < 5.0f)
+        if (Vector3.Distance(player.transform.position, goalLight.transform.position) < 5.0f)
         {
             if (!escapeMessagePopUp)
             {
@@ -86,7 +91,9 @@ public class UIController : MonoBehaviour
             t += Time.deltaTime * 2;
             escapePanel.color = new Color(255, 255, 255, t);
         }
+        #endregion
 
+        #region instruction on game start
         // on game start instruction pops up
         if (time > 5.0f && time < 10.0f)
         {
@@ -117,15 +124,17 @@ public class UIController : MonoBehaviour
         {
             backCameraText.enabled = false;
         }
+        #endregion
 
+        #region stamina
         // Stamina UI
-        if (stamina.GetComponent<Slider>().value >= 1)
+        if (stamina.value >= 1)
         {
-            sliderGameObject.SetActive(false);
+            stamina.gameObject.SetActive(false);
         }
         else
         {
-            sliderGameObject.SetActive(true);
+            stamina.gameObject.SetActive(true);
         }
 
         if (stamina.value <= 0)
@@ -168,6 +177,60 @@ public class UIController : MonoBehaviour
                 stamina.value += 0.003f;
             }
         }
+        #endregion
+
+        #region destroy
+        if (destroy.value <= 0)
+        {
+            canDestroy = false;
+        }
+
+        if (destroy.value >= 1.0f)
+        {
+            canDestroy = true;
+        }
+
+        if (canDestroy)
+        {
+            destroyBar.color = Color.red;
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                GameObject clickedGameObject = null;
+
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit = new RaycastHit();
+
+                if (Physics.Raycast(ray, out hit))
+                {
+                    clickedGameObject = hit.collider.gameObject;
+                }
+                else
+                {
+                    return;
+                }
+
+                string tag = hit.collider.tag;
+                if (tag == "Ground" || tag == "MainCamera" || tag == "Enemy") return;
+                Destroy(clickedGameObject);
+                Invoke(nameof(RebakeNavMesh), 0.1f);
+           
+                destroy.value = 0;
+            }
+        }
+        else
+        {
+            destroyBar.color = Color.black;
+
+            destroy.value += 1f;
+        }
+        #endregion
+    }
+
+    void RebakeNavMesh()
+    {
+        maze.GetComponent<NavMeshSurface>().useGeometry = NavMeshCollectGeometry.PhysicsColliders;
+        maze.GetComponent<NavMeshSurface>().BuildNavMesh();
     }
     
     public void LoadTitle()

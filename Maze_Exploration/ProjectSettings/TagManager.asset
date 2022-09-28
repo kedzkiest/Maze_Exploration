@@ -10,6 +10,7 @@ TagManager:
   - ChaseMusicPlayer
   - Canvas
   - FlashLight
+  - Ground
   layers:
   - Default
   - TransparentFX
