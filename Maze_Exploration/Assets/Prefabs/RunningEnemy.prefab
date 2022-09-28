@@ -2851,7 +2851,6 @@ GameObject:
   - component: {fileID: 8436623626237658820}
   - component: {fileID: 8436623626237658810}
   - component: {fileID: 8436623626237658809}
-  - component: {fileID: -2835552649029672892}
   m_Layer: 0
   m_Name: RunningEnemy
   m_TagString: Enemy
@@ -3140,18 +3139,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-2835552649029672892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8779065626899572591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ae1da30192cea640a2fd610acf5b6fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8812058504911445612
 GameObject:
   m_ObjectHideFlags: 0

@@ -37,6 +37,10 @@ public class UIController : MonoBehaviour
     [CanBeNull] private GameObject  player;
     [CanBeNull] private GameObject  goalLight;
 
+    private float distUpdateFreq = 0.3f;
+    private float elapsedTimeForDist;
+    private float distBTWPlayerAndGoal = 10000;
+
     private float time;
 
     private float t;
@@ -65,8 +69,15 @@ public class UIController : MonoBehaviour
         timeText.text = "Time: " + time.ToString();
 
         #region instruction on escape
+        elapsedTimeForDist += Time.deltaTime;
+        if (elapsedTimeForDist > distUpdateFreq)
+        {
+            elapsedTimeForDist = 0;
+            distBTWPlayerAndGoal = Vector3.Distance(player.transform.position, goalLight.transform.position);
+        }
+
         // when goal is near the player, an instruction pops up
-        if (Vector3.Distance(player.transform.position, goalLight.transform.position) < 5.0f)
+        if (distBTWPlayerAndGoal < 5.0f)
         {
             if (!escapeMessagePopUp)
             {
