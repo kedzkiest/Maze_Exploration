@@ -61,6 +61,7 @@ public class ChaseMusicController : MonoBehaviour
                 if (!obj.GetComponent<RunningEnemyController>().isChasing)
                 {
                     chasingEnemies.Remove(obj);
+                    break;
                 }
             }
         }

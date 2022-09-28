@@ -112,17 +112,24 @@ public class Maze : MonoBehaviour
                 
             }
         }
-        
-        
+        List<MapLocation> original = new List<MapLocation>(emptyPositions);
+
         int r = Random.Range(0, emptyPositions.Count);
         playerPos = new Vector3(emptyPositions.ElementAt(r).x * scale, -1.7f,
             emptyPositions.ElementAt(r).z * scale);
         Instantiate(player, playerPos, Quaternion.identity);
+        emptyPositions.Remove(emptyPositions.ElementAt(r));
 
         int cnt = 0;
         
         while (true)
         {
+            // if there is no empty position for spawn, then reuse the positions that is already used
+            if(emptyPositions.Count == 0)
+            {
+                emptyPositions = new List<MapLocation>(original);
+            }
+
             r = Random.Range(0, emptyPositions.Count);
             goalPos = new Vector3(emptyPositions.ElementAt(r).x * scale, -3.0f,
                 emptyPositions.ElementAt(r).z * scale);
@@ -131,6 +138,7 @@ public class Maze : MonoBehaviour
             {
                 Instantiate(runningEnemy, goalPos + new Vector3(0, -3.0f, 0), Quaternion.identity);
                 cnt++;
+                emptyPositions.Remove(emptyPositions.ElementAt(r));
             }
 
             if (cnt == numberOfRunningEnemies) break;
