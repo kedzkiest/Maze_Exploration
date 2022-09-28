@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.AI;
+using System.Runtime.CompilerServices;
 
 public class UIController : MonoBehaviour
 {
@@ -28,7 +29,7 @@ public class UIController : MonoBehaviour
     public bool canEscape;
     public Image escapePanel;
     
-    private AudioSource messagePopUpAudioSource;
+    private AudioSource audioSource;
     public AudioClip messagePopUp;
     private bool escapeMessagePopUp;
     private bool lightMessagePopUp;
@@ -52,12 +53,15 @@ public class UIController : MonoBehaviour
     public float StaminaRecoverSpeed_Walking;
     public float DestroyRechargeSpeed;
 
+    public AudioClip DestroyCharged;
+    private bool DestroyRechargeSound_isCalledOnce = true;
+
     // Start is called before the first frame update
     void Start()
     {
         cameraComponent = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Camera>();
         
-        messagePopUpAudioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
         
         player = GameObject.FindGameObjectWithTag("Player");
         goalLight = GameObject.FindGameObjectWithTag("Goal");
@@ -88,7 +92,7 @@ public class UIController : MonoBehaviour
             if (!escapeMessagePopUp)
             {
                 escapeMessagePopUp = true;
-                messagePopUpAudioSource.PlayOneShot(messagePopUp);
+                audioSource.PlayOneShot(messagePopUp);
             }
             escapeText.enabled = true;
         }
@@ -117,7 +121,7 @@ public class UIController : MonoBehaviour
             if (!lightMessagePopUp)
             {
                 lightMessagePopUp = true;
-                messagePopUpAudioSource.PlayOneShot(messagePopUp);
+                audioSource.PlayOneShot(messagePopUp);
             }
             lightText.enabled = true;
         }
@@ -132,7 +136,7 @@ public class UIController : MonoBehaviour
             if (!backCameraMessagePopUp)
             {
                 backCameraMessagePopUp = true;
-                messagePopUpAudioSource.PlayOneShot(messagePopUp);
+                audioSource.PlayOneShot(messagePopUp);
             }
 
             backCameraText.enabled = true;
@@ -183,7 +187,7 @@ public class UIController : MonoBehaviour
         }
         else
         {
-            staminaBar.color = Color.red;
+            staminaBar.color = new Color(0.552f, 0.584f, 0.016f, 1);
 
             if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
             {
@@ -205,6 +209,12 @@ public class UIController : MonoBehaviour
         if (destroy.value >= 1.0f)
         {
             canDestroy = true;
+
+            if (!DestroyRechargeSound_isCalledOnce)
+            {
+                DestroyRechargeSound_isCalledOnce = true;
+                audioSource.PlayOneShot(DestroyCharged);
+            }
         }
 
         if (canDestroy)
@@ -230,6 +240,7 @@ public class UIController : MonoBehaviour
                 string tag = hit.collider.tag;
                 if (tag == "Ground" || tag == "MainCamera" || tag == "Enemy") return;
                 Destroy(clickedGameObject);
+                DestroyRechargeSound_isCalledOnce = false;
                 Invoke(nameof(RebakeNavMesh), 0.1f);
            
                 destroy.value = 0;
@@ -237,7 +248,7 @@ public class UIController : MonoBehaviour
         }
         else
         {
-            destroyBar.color = Color.black;
+            destroyBar.color = new Color(0.45f, 0, 0, 1);
 
             destroy.value += DestroyRechargeSpeed * Time.deltaTime;
         }
