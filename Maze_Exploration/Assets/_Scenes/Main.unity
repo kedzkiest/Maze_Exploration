@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.0014525356, g: 0.006940083, b: 0.034737803, a: 1}
+  m_IndirectSpecularColor: {r: 0.0014063511, g: 0.0067342576, b: 0.03371001, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -713,7 +713,7 @@ MonoBehaviour:
   StaminaConsumeSpeed: 0.25
   StaminaRecoverSpeed_Rest: 0.2
   StaminaRecoverSpeed_Walking: 0.05
-  DestroyRechargeSpeed: 1
+  DestroyRechargeSpeed: 0.03
   DestroyCharged: {fileID: 8300000, guid: e97080d89d8505b4e8858499649c31db, type: 3}
 --- !u!82 &638858745
 AudioSource:
