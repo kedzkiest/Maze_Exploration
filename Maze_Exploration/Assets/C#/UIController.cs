@@ -46,6 +46,12 @@ public class UIController : MonoBehaviour
     private float t;
 
     public Maze maze;
+
+    public float StaminaConsumeSpeed;
+    public float StaminaRecoverSpeed_Rest;
+    public float StaminaRecoverSpeed_Walking;
+    public float DestroyRechargeSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -164,15 +170,15 @@ public class UIController : MonoBehaviour
             
             if(Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift))
             {
-                stamina.value -= 0.003f;
+                stamina.value -= StaminaConsumeSpeed * Time.deltaTime;
             }
             else if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
             {
-                stamina.value += 0.001f;
+                stamina.value += StaminaRecoverSpeed_Walking * Time.deltaTime;
             }
             else
             {
-                stamina.value += 0.003f;
+                stamina.value += StaminaRecoverSpeed_Rest * Time.deltaTime;
             }
         }
         else
@@ -181,11 +187,11 @@ public class UIController : MonoBehaviour
 
             if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
             {
-                stamina.value += 0.001f;
+                stamina.value += StaminaRecoverSpeed_Walking * Time.deltaTime;
             }
             else
             {
-                stamina.value += 0.003f;
+                stamina.value += StaminaRecoverSpeed_Rest * Time.deltaTime;
             }
         }
         #endregion
@@ -233,7 +239,7 @@ public class UIController : MonoBehaviour
         {
             destroyBar.color = Color.black;
 
-            destroy.value += 1f;
+            destroy.value += DestroyRechargeSpeed * Time.deltaTime;
         }
         #endregion
     }

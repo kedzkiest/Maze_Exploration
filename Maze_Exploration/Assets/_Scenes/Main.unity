@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.0024232382, g: 0.0123026995, b: 0.060273804, a: 1}
+  m_IndirectSpecularColor: {r: 0.00021928413, g: 0.0010913373, b: 0.005282107, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -702,7 +702,7 @@ MonoBehaviour:
   backCameraText: {fileID: 1463588954}
   stamina: {fileID: 1076541104}
   staminaBar: {fileID: 2019732750}
-  canDash: 0
+  canDash: 1
   destroy: {fileID: 1510775289}
   destroyBar: {fileID: 1770228965}
   canDestroy: 0
@@ -710,6 +710,10 @@ MonoBehaviour:
   escapePanel: {fileID: 1287719103}
   messagePopUp: {fileID: 8300000, guid: a1446d803bb04e3488885a73406a2789, type: 3}
   maze: {fileID: 1005088012}
+  StaminaConsumeSpeed: 0.25
+  StaminaRecoverSpeed_Rest: 0.2
+  StaminaRecoverSpeed_Walking: 0.05
+  DestroyRechargeSpeed: 0.03
 --- !u!82 &638858745
 AudioSource:
   m_ObjectHideFlags: 0
