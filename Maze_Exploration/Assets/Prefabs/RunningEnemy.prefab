@@ -2971,6 +2971,7 @@ MonoBehaviour:
   isChasing: 0
   normalMoveSpeed: 6
   chasingMoveSpeed: 8
+  infoUpdateFreq: 0.3
 --- !u!82 &8436623626237658809
 AudioSource:
   m_ObjectHideFlags: 0

@@ -42,6 +42,11 @@ public class RunningEnemyController : MonoBehaviour
     public float normalMoveSpeed;
     public float chasingMoveSpeed;
 
+    public float infoUpdateFreq;
+    private float distToPlayer;
+    private float angleToPlayer;
+    private float elapsedTime;
+
     private readonly string[] deathReason =
     {
         "走り回る者に轢かれた",
@@ -104,12 +109,21 @@ public class RunningEnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        elapsedTime += Time.deltaTime;
+
         Vector3 thisPos = gameObject.transform.position;
         Vector3 playerPos = player.transform.position - new Vector3(0, 2.0f, 0);
 
-    
-        if (Vector3.Distance(thisPos, playerPos) < sensingDistance &&
-            Vector3.Angle(gameObject.transform.forward, playerPos - thisPos) < sensingFOV)
+        if(elapsedTime > infoUpdateFreq)
+        {
+            elapsedTime = 0;
+            distToPlayer = Vector3.Distance(thisPos, playerPos);
+            angleToPlayer = Vector3.Angle(gameObject.transform.forward, playerPos - thisPos);
+        }
+
+
+
+        if (distToPlayer < sensingDistance && angleToPlayer < sensingFOV)
         {
             RaycastHit hit;
 
@@ -128,8 +142,7 @@ public class RunningEnemyController : MonoBehaviour
         {
             agent.speed = chasingMoveSpeed;
             
-            if(Vector3.Distance(thisPos, playerPos) > sensingDistance ||
-               Vector3.Angle(gameObject.transform.forward, playerPos - thisPos) > sensingFOV)
+            if(distToPlayer > sensingDistance || angleToPlayer > sensingFOV)
             {
                 RaycastHit hit;
             
