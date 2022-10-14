@@ -67,6 +67,7 @@ public class UIController : MonoBehaviour
         goalLight = GameObject.FindGameObjectWithTag("Goal");
 
         canDash = true;
+        destroy.value = 0;
 
         t = 0;
     }
@@ -241,7 +242,6 @@ public class UIController : MonoBehaviour
                 if (tag == "Ground" || tag == "MainCamera" || tag == "Enemy") return;
                 Destroy(clickedGameObject);
                 DestroyRechargeSound_isCalledOnce = false;
-                Invoke(nameof(RebakeNavMesh), 0.1f);
            
                 destroy.value = 0;
             }
@@ -253,12 +253,6 @@ public class UIController : MonoBehaviour
             destroy.value += DestroyRechargeSpeed * Time.deltaTime;
         }
         #endregion
-    }
-
-    void RebakeNavMesh()
-    {
-        maze.GetComponent<NavMeshSurface>().useGeometry = NavMeshCollectGeometry.PhysicsColliders;
-        maze.GetComponent<NavMeshSurface>().BuildNavMesh();
     }
     
     public void LoadTitle()

@@ -89,6 +89,7 @@ public class Maze : MonoBehaviour
                     Vector3 pos = new Vector3(x * scale, 0, z * scale);
                     GameObject wall = GameObject.CreatePrimitive(PrimitiveType.Cube);
                     wall.isStatic = true;
+                    wall.AddComponent<NavMeshObstacle>().carving = true;
                     wall.GetComponent<Renderer>().material = wallMaterial;
                     wall.transform.localScale = new Vector3(scale, scale, scale);
                     wall.transform.position = pos;
