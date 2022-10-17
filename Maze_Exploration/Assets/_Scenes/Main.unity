@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.0036962219, g: 0.019167235, b: 0.09150489, a: 1}
+  m_IndirectSpecularColor: {r: 0.0033270537, g: 0.01713511, b: 0.08160365, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1236,8 +1236,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33bbdb95ccc4b4577a62495732a02d3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 30
-  depth: 30
+  width: 15
+  depth: 15
   scale: 6
   wallMaterial: {fileID: 2100000, guid: dad53977d7ab443f9b3aa0f3ce239b3f, type: 2}
   player: {fileID: 7046569230766839027, guid: 5092485dadc8604459201abc9396b4f5, type: 3}
@@ -1245,7 +1245,7 @@ MonoBehaviour:
   runningEnemy: {fileID: 8779065626899572591, guid: 5c7051d924fd8b945a0feffa342525b8, type: 3}
   minimumDistanceToGoal: 50
   maximumDistanceToGoal: 100
-  numberOfRunningEnemies: 0
+  numberOfRunningEnemies: 5
 --- !u!114 &1005088013
 MonoBehaviour:
   m_ObjectHideFlags: 0
