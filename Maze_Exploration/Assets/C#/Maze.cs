@@ -105,8 +105,7 @@ public class Maze : MonoBehaviour
         {
             for (int x = 0; x < width; x++)
             {
-                Vector3 targetPos = new Vector3(x, -1.5f, z);
-                if(!(Physics.OverlapSphere(targetPos, 0).Length > 0) && map[x, z] == 0)
+                if(map[x, z] == 0)
                 {
                     emptyPositions.Add(new MapLocation(x, z));
                 }
@@ -116,10 +115,12 @@ public class Maze : MonoBehaviour
         List<MapLocation> original = new List<MapLocation>(emptyPositions);
 
         int r = Random.Range(0, emptyPositions.Count);
-        playerPos = new Vector3(emptyPositions.ElementAt(r).x * scale, -1.7f,
-            emptyPositions.ElementAt(r).z * scale);
+        MapLocation playerLocation = emptyPositions.ElementAt(r);
+
+        playerPos = new Vector3(playerLocation.x * scale, -1.7f,
+            playerLocation.z * scale);
         Instantiate(player, playerPos, Quaternion.identity);
-        emptyPositions.Remove(emptyPositions.ElementAt(r));
+        emptyPositions.Remove(playerLocation);
 
         int cnt = 0;
         
@@ -129,6 +130,7 @@ public class Maze : MonoBehaviour
             if(emptyPositions.Count == 0)
             {
                 emptyPositions = new List<MapLocation>(original);
+                emptyPositions.Remove(playerLocation);
             }
 
             r = Random.Range(0, emptyPositions.Count);
@@ -144,24 +146,6 @@ public class Maze : MonoBehaviour
 
             if (cnt == numberOfRunningEnemies) break;
         }
-        
-        
-        /*
-        while (true)
-        {
-            r = Random.Range(0, emptyPositions.Count);
-            goalPos = new Vector3(emptyPositions.ElementAt(r).x * scale, -3.0f,
-                emptyPositions.ElementAt(r).z * scale);
-            if (Vector3.Distance(playerPos, goalPos) >= minimumDistanceToGoal &&
-                Vector3.Distance(playerPos, goalPos) <= maximumDistanceToGoal)
-            {
-                Instantiate(enemy, goalPos + new Vector3(0, -3.0f, 0), Quaternion.identity);
-                cnt++;
-            }
-
-            if (cnt == numberOfEnemies) break;
-        }
-        */
         
         Instantiate(goalLight, goalPos, Quaternion.Euler(-90, 0, 0));
     }
