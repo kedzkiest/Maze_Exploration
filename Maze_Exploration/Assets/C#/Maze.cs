@@ -97,10 +97,12 @@ public class Maze : MonoBehaviour
                     if(x == 0 || x == width - 1 || z == 0 || z == depth - 1)
                     {
                         wall.GetComponent<Renderer>().material = unbreakableWallMaterial;
+                        wall.tag = "UnbreakableWall";
                     }
                     else
                     {
                         wall.GetComponent<Renderer>().material = breakableWallMaterial;
+                        wall.tag = "BreakableWall";
                     }
 
                     wall.transform.localScale = new Vector3(scale, scale, scale);

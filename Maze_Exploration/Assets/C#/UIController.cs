@@ -240,6 +240,8 @@ public class UIController : MonoBehaviour
 
                 string tag = hit.collider.tag;
                 if (tag == "Ground" || tag == "MainCamera" || tag == "Enemy") return;
+                if (tag == "UnbreakableWall") return;
+
                 Destroy(clickedGameObject);
                 DestroyRechargeSound_isCalledOnce = false;
            
