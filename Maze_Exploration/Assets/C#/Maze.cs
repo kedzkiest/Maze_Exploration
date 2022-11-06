@@ -42,7 +42,8 @@ public class Maze : MonoBehaviour
     public int depth = 30; //z length
     public byte[,] map;
     public int scale = 6;
-    public Material wallMaterial;
+    public Material breakableWallMaterial;
+    public Material unbreakableWallMaterial;
     public GameObject player;
     public GameObject goalLight;
     public GameObject runningEnemy;
@@ -89,9 +90,19 @@ public class Maze : MonoBehaviour
                     Vector3 pos = new Vector3(x * scale, 0, z * scale);
                     GameObject wall = GameObject.CreatePrimitive(PrimitiveType.Cube);
                     wall.transform.parent = transform;
+
                     wall.isStatic = true;
                     wall.AddComponent<NavMeshObstacle>().carving = true;
-                    wall.GetComponent<Renderer>().material = wallMaterial;
+
+                    if(x == 0 || x == width - 1 || z == 0 || z == depth - 1)
+                    {
+                        wall.GetComponent<Renderer>().material = unbreakableWallMaterial;
+                    }
+                    else
+                    {
+                        wall.GetComponent<Renderer>().material = breakableWallMaterial;
+                    }
+
                     wall.transform.localScale = new Vector3(scale, scale, scale);
                     wall.transform.position = pos;
                 }

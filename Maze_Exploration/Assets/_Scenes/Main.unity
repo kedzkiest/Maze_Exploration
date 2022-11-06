@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.0035567759, g: 0.017303951, b: 0.08303742, a: 1}
+  m_IndirectSpecularColor: {r: 0.000000539312, g: 0.0000027128467, b: 0.00001357689, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1239,7 +1239,8 @@ MonoBehaviour:
   width: 15
   depth: 15
   scale: 6
-  wallMaterial: {fileID: 2100000, guid: dad53977d7ab443f9b3aa0f3ce239b3f, type: 2}
+  breakableWallMaterial: {fileID: 2100000, guid: dad53977d7ab443f9b3aa0f3ce239b3f, type: 2}
+  unbreakableWallMaterial: {fileID: 2100000, guid: 4b9178716b13f4546a8afad8d377bf2f, type: 2}
   player: {fileID: 7046569230766839027, guid: 5092485dadc8604459201abc9396b4f5, type: 3}
   goalLight: {fileID: 581947228602698526, guid: 62d7843115d9d594db31d8cead964991, type: 3}
   runningEnemy: {fileID: 8779065626899572591, guid: 5c7051d924fd8b945a0feffa342525b8, type: 3}
