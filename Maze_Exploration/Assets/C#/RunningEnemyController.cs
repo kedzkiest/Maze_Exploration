@@ -4,6 +4,7 @@ using System.Linq;
 using System.Xml;
 using TMPro.EditorUtilities;
 using UnityEditor;
+using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
@@ -67,7 +68,7 @@ public class RunningEnemyController : MonoBehaviour
         mostLowerRightPoint = maze.FindMostLowerRightPoint();
         mostLowerLeftPoint = maze.FindMostLowerLeftPoint();
         centerPoint = maze.FindMostCenterPoint();
-        
+
         /* check position
         GameObject UpperLeft = GameObject.CreatePrimitive(PrimitiveType.Cube);
         UpperLeft.transform.position = mostUpperLeftPoint;
@@ -78,13 +79,12 @@ public class RunningEnemyController : MonoBehaviour
         GameObject LowerRight = GameObject.CreatePrimitive(PrimitiveType.Cube);
         LowerRight.transform.position = mostLowerRightPoint;
         
-        GameObject LowerLeft = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        LowerLeft.transform.position = mostLowerLeftPoint;
+        GGameObject.CreatePrimitive(PrimitiveType.Cube);
         
         GameObject Center = GameObject.CreatePrimitive(PrimitiveType.Cube);
         Center.transform.position = centerPoint;
         */
-            
+
         waypoints[0] = mostUpperLeftPoint;
         waypoints[1] = mostUpperRightPoint;
         waypoints[2] = mostLowerRightPoint;
@@ -94,10 +94,10 @@ public class RunningEnemyController : MonoBehaviour
         waypointsList = waypoints.ToList();
 
         currentDestinationIndex = Random.Range(0, waypointsList.Count);
-        currentDestination = waypoints.ElementAt(currentDestinationIndex);
+        currentDestination = waypointsList.ElementAt(currentDestinationIndex);
         waypointsList.RemoveAt(currentDestinationIndex);
         pastDestination = currentDestination;
-        agent.SetDestination(waypoints[currentDestinationIndex]);
+        agent.SetDestination(currentDestination);
 
         isChasing = false;
 
@@ -152,11 +152,11 @@ public class RunningEnemyController : MonoBehaviour
                     {
                         isChasing = false;
                         currentDestinationIndex = Random.Range(0, waypointsList.Count);
-                        currentDestination = waypoints.ElementAt(currentDestinationIndex);
+                        currentDestination = waypointsList.ElementAt(currentDestinationIndex);
                         waypointsList.RemoveAt(currentDestinationIndex);
                         waypointsList.Add(pastDestination);
                         pastDestination = currentDestination;
-                        agent.SetDestination(waypoints[currentDestinationIndex]);
+                        agent.SetDestination(currentDestination);
                     }
                 }
             }
@@ -169,11 +169,11 @@ public class RunningEnemyController : MonoBehaviour
             if (agent.remainingDistance < 1.0f)
             {
                 currentDestinationIndex = Random.Range(0, waypointsList.Count);
-                currentDestination = waypoints.ElementAt(currentDestinationIndex);
+                currentDestination = waypointsList.ElementAt(currentDestinationIndex);
                 waypointsList.RemoveAt(currentDestinationIndex);
                 waypointsList.Add(pastDestination);
                 pastDestination = currentDestination;
-                agent.SetDestination(waypoints[currentDestinationIndex]);;
+                agent.SetDestination(currentDestination);
             }
         }
         
@@ -197,5 +197,11 @@ public class RunningEnemyController : MonoBehaviour
             GameOver.reason = "あなたは" + deathReason[Random.Range(0, 4)] + "...";
             SceneManager.LoadScene("GameOver");
         }
+    }
+
+    public void VisitDestination(Vector3 dest)
+    {
+        agent.SetDestination(dest);
+        waypointsList.Add(pastDestination);
     }
 }

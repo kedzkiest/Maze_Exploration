@@ -11,6 +11,8 @@ TagManager:
   - Canvas
   - FlashLight
   - Ground
+  - BreakableWall
+  - UnbreakableWall
   layers:
   - Default
   - TransparentFX

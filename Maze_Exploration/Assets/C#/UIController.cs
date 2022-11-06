@@ -243,6 +243,10 @@ public class UIController : MonoBehaviour
                 if (tag == "UnbreakableWall") return;
 
                 Destroy(clickedGameObject);
+                GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                foreach (GameObject enemy in enemies) {
+                    enemy.GetComponent<RunningEnemyController>().VisitDestination(clickedGameObject.transform.position);
+                }
                 DestroyRechargeSound_isCalledOnce = false;
            
                 destroy.value = 0;
