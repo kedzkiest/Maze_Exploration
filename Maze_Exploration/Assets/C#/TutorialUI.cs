@@ -8,32 +8,29 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.AI;
 using System.Runtime.CompilerServices;
+using System;
 
-public class UIController : MonoBehaviour
+public class TutorialUI : MonoBehaviour
 {
     private Camera cameraComponent;
 
-    public Text timeText;
-    public Text escapeText;
-
-    public Text[] popUpTextOnStart;
-    private int textIndex = 0;
+    [SerializeField] private Text[] popUpTextOnStart;
     
-    public Slider stamina;
-    public Image staminaBar;
-    public bool canDash;
+    [SerializeField] private Slider stamina;
+    [SerializeField] private Image staminaBar;
+    [SerializeField] private bool canDash;
 
-    public Slider destroy;
-    public Image destroyBar;
-    public bool canDestroy;
+    [SerializeField] private Slider destroy;
+    [SerializeField] private Image destroyBar;
+    [SerializeField] private bool canDestroy;
 
-    public bool canEscape;
-    public Image escapePanel;
-    
+    [SerializeField] private bool canEscape;
+    [SerializeField] private Image escapePanel;
+    [SerializeField] private Text escapeText;
+
     private AudioSource audioSource;
     public AudioClip messagePopUp;
     private bool escapeMessagePopUp;
-
     private bool playMessagePopUpSound;
     
     [CanBeNull] private GameObject  player;
@@ -45,19 +42,15 @@ public class UIController : MonoBehaviour
 
     private float time;
 
-    private float t;
+    private float escapePanelFlashTime;
 
-    public Maze maze;
+    [SerializeField] private float StaminaConsumeSpeed;
+    [SerializeField] private float StaminaRecoverSpeed_Rest;
+    [SerializeField] private float StaminaRecoverSpeed_Walking;
+    [SerializeField] private float DestroyRechargeSpeed;
 
-    public float StaminaConsumeSpeed;
-    public float StaminaRecoverSpeed_Rest;
-    public float StaminaRecoverSpeed_Walking;
-    public float DestroyRechargeSpeed;
-
-    public AudioClip DestroyCharged;
+    [SerializeField] private AudioClip DestroyCharged;
     private bool DestroyRechargeSound_isCalledOnce = true;
-
-    private string currentSceneName;
 
     // Start is called before the first frame update
     void Start()
@@ -72,14 +65,7 @@ public class UIController : MonoBehaviour
         canDash = true;
         destroy.value = 0;
 
-        foreach(Text text in popUpTextOnStart)
-        {
-            text.enabled = false;
-        }
-
-        currentSceneName = SceneManager.GetActiveScene().name;
-
-        t = 0;
+        escapePanelFlashTime = 0;
     }
   
 
@@ -87,7 +73,6 @@ public class UIController : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-        timeText.text = "Time: " + time.ToString();
 
         #region instruction on escape
         elapsedTimeForDist += Time.deltaTime;
@@ -122,9 +107,15 @@ public class UIController : MonoBehaviour
 
         if (canEscape)
         {
-            t += Time.deltaTime * 2;
-            escapePanel.color = new Color(255, 255, 255, t);
+            escapePanelFlashTime += Time.deltaTime * 2;
+            escapePanel.color = new Color(255, 255, 255, escapePanelFlashTime);
         }
+        #endregion
+
+        #region instruction on game start
+        // on game start instruction pops up
+        int textIndex = 0;
+        popUpTextOnStart[textIndex].enabled = true;
         #endregion
 
         #region stamina
@@ -238,30 +229,9 @@ public class UIController : MonoBehaviour
             destroy.value += DestroyRechargeSpeed * Time.deltaTime;
         }
         #endregion
-
-        #region instruction on game start (only in tutorial mode)
-        if (currentSceneName != "Tutorial") return;
-        if (time >= 3.0f)
-        {
-            time = 0;
-            popUpTextOnStart[textIndex].enabled = false;
-            if (textIndex == popUpTextOnStart.Length - 1)
-            {
-                textIndex = 0;
-            }
-            else
-            {
-                textIndex++;
-            }
-            popUpTextOnStart[textIndex].enabled = true;
-        }
-
-
-
-        #endregion
     }
-
-    public void LoadTitle()
+    
+    [SerializeField] private void LoadTitle()
     {
         SceneManager.LoadScene("Title");
     }
