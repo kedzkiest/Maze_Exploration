@@ -725,7 +725,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9dda2241c625f9847985cd3937514313, type: 3}
   - {fileID: 8300000, guid: 9dda2241c625f9847985cd3937514313, type: 3}
   isLightOn: 0
-  lightIntensity: 2
+  lightIntensity: 1
   lightTremor: 0.05
 --- !u!82 &872623236199274229
 AudioSource:
