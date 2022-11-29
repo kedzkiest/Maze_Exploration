@@ -1,13 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
 using JetBrains.Annotations;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEngine.AI;
-using System.Runtime.CompilerServices;
 
 public class UIController : MonoBehaviour
 {
