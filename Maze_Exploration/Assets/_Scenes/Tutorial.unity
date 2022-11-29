@@ -3204,12 +3204,12 @@ MonoBehaviour:
   canEscape: 0
   escapePanel: {fileID: 134714237687496642}
   messagePopUp: {fileID: 8300000, guid: a1446d803bb04e3488885a73406a2789, type: 3}
-  maze: {fileID: 0}
+  pantSound: {fileID: 8300000, guid: 36a657c8e811bfc43a64c5c111dc0cf2, type: 3}
   StaminaConsumeSpeed: 0.25
   StaminaRecoverSpeed_Rest: 0.2
   StaminaRecoverSpeed_Walking: 0.05
+  DestroyCharged: {fileID: 8300000, guid: e97080d89d8505b4e8858499649c31db, type: 3}
   DestroyRechargeSpeed: 0.03
-  DestroyCharged: {fileID: 8300000, guid: 28fa2333dd54fb54790f82a2477ac3c4, type: 3}
 --- !u!114 &134714238053237384
 MonoBehaviour:
   m_ObjectHideFlags: 0
