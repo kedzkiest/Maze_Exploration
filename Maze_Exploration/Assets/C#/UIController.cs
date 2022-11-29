@@ -17,6 +17,7 @@ public class UIController : MonoBehaviour
     public Text escapeText;
 
     public Text[] popUpTextOnStart;
+    public Text currentIndexText;
     private int textIndex = 0;
     
     public Slider stamina;
@@ -45,9 +46,7 @@ public class UIController : MonoBehaviour
 
     private float time;
 
-    private float t;
-
-    public Maze maze;
+    private float escapePanelFlashTime;
 
     public float StaminaConsumeSpeed;
     public float StaminaRecoverSpeed_Rest;
@@ -55,7 +54,7 @@ public class UIController : MonoBehaviour
     public float DestroyRechargeSpeed;
 
     public AudioClip DestroyCharged;
-    private bool DestroyRechargeSound_isCalledOnce = true;
+    private bool DestroyRechargeSound_isCalledOnce;
 
     private string currentSceneName;
 
@@ -76,10 +75,11 @@ public class UIController : MonoBehaviour
         {
             text.enabled = false;
         }
+        popUpTextOnStart[0].enabled = true;
 
         currentSceneName = SceneManager.GetActiveScene().name;
 
-        t = 0;
+        escapePanelFlashTime = 0;
     }
   
 
@@ -122,8 +122,8 @@ public class UIController : MonoBehaviour
 
         if (canEscape)
         {
-            t += Time.deltaTime * 2;
-            escapePanel.color = new Color(255, 255, 255, t);
+            escapePanelFlashTime += Time.deltaTime * 2;
+            escapePanel.color = new Color(255, 255, 255, escapePanelFlashTime);
         }
         #endregion
 
@@ -241,11 +241,18 @@ public class UIController : MonoBehaviour
 
         #region instruction on game start (only in tutorial mode)
         if (currentSceneName != "Tutorial") return;
-        if (time >= 3.0f)
+        DisplayPopUp();
+        #endregion
+    }
+
+    private void DisplayPopUp()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            time = 0;
+            playMessagePopUpSound = false;
             popUpTextOnStart[textIndex].enabled = false;
-            if (textIndex == popUpTextOnStart.Length - 1)
+
+            if(textIndex == popUpTextOnStart.Length - 1)
             {
                 textIndex = 0;
             }
@@ -253,12 +260,16 @@ public class UIController : MonoBehaviour
             {
                 textIndex++;
             }
+
             popUpTextOnStart[textIndex].enabled = true;
+
+            if (!playMessagePopUpSound)
+            {
+                playMessagePopUpSound = true;
+                audioSource.PlayOneShot(messagePopUp);
+            }
         }
-
-
-
-        #endregion
+        currentIndexText.text = textIndex + 1 + " / " + popUpTextOnStart.Length;
     }
 
     public void LoadTitle()
