@@ -26,6 +26,7 @@ public class RunningEnemyController : MonoBehaviour
     private int currentDestinationIndex;
     private Vector3 currentDestination;
     private Vector3 pastDestination;
+    private bool isDestinationChanged;
 
     public float normalSensingDistance;
     public float strongSensingDistance;
@@ -166,7 +167,7 @@ public class RunningEnemyController : MonoBehaviour
         {
             agent.speed = normalMoveSpeed;
             
-            if (agent.remainingDistance < 1.0f)
+            if (agent.remainingDistance < 1.0f && !isDestinationChanged)
             {
                 currentDestinationIndex = Random.Range(0, waypointsList.Count);
                 currentDestination = waypointsList.ElementAt(currentDestinationIndex);
@@ -174,6 +175,12 @@ public class RunningEnemyController : MonoBehaviour
                 waypointsList.Add(pastDestination);
                 pastDestination = currentDestination;
                 agent.SetDestination(currentDestination);
+                isDestinationChanged = true;
+            }
+
+            if(agent.remainingDistance >= 1.0f)
+            {
+                isDestinationChanged = false;
             }
         }
         
@@ -189,7 +196,7 @@ public class RunningEnemyController : MonoBehaviour
             sensingFOV = normalSensingFOV;
         }
 
-        // Debug
+        // Display where the enemy going
         Debug.DrawRay(transform.position, currentDestination - transform.position, Color.red);
     }
 
