@@ -162,13 +162,16 @@ public class UIController : MonoBehaviour
         {
             staminaBar.color = Color.yellow;
             
-            if(Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift))
+            if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
             {
-                stamina.value -= StaminaConsumeSpeed * Time.deltaTime;
-            }
-            else if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
-            {
-                stamina.value += StaminaRecoverSpeed_Walking * Time.deltaTime;
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    stamina.value -= StaminaConsumeSpeed * Time.deltaTime;
+                }
+                else
+                {
+                    stamina.value += StaminaRecoverSpeed_Walking * Time.deltaTime;
+                }
             }
             else
             {
