@@ -74,15 +74,15 @@ public class UIController : MonoBehaviour
         canDash = true;
         destroy.value = 0;
 
-        foreach(Text text in popUpTextOnStart)
+        escapePanelFlashTime = 0;
+
+        currentSceneName = SceneManager.GetActiveScene().name;
+        if (currentSceneName != "Tutorial") return;
+        foreach (Text text in popUpTextOnStart)
         {
             text.enabled = false;
         }
         popUpTextOnStart[0].enabled = true;
-
-        currentSceneName = SceneManager.GetActiveScene().name;
-
-        escapePanelFlashTime = 0;
     }
   
 
