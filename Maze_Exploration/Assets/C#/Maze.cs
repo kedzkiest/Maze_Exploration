@@ -168,7 +168,7 @@ public class Maze : MonoBehaviour
                 emptyPositions.Remove(emptyPositions.ElementAt(r));
             }
 
-            if (cnt == numberOfRunningEnemies) break;
+            if (cnt >= numberOfRunningEnemies) break;
         }
         
         Instantiate(goalLight, goalPos, Quaternion.Euler(-90, 0, 0));

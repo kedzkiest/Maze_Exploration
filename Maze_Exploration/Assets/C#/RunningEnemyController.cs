@@ -188,6 +188,9 @@ public class RunningEnemyController : MonoBehaviour
             sensingDistance = normalSensingDistance;
             sensingFOV = normalSensingFOV;
         }
+
+        // Debug
+        Debug.DrawRay(transform.position, currentDestination - transform.position, Color.red);
     }
 
     void OnCollisionEnter(Collision collision)
