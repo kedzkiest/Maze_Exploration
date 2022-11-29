@@ -114,7 +114,7 @@ public class Maze : MonoBehaviour
     List<MapLocation> emptyPositions = new List<MapLocation>{};
     void InitialisePositions()
     {
-        Vector3 playerPos, goalPos;
+        Vector3 playerPos = Vector3.zero, goalPos;
         for (int z = 0; z < depth; z++)
         {
             for (int x = 0; x < width; x++)
@@ -128,13 +128,24 @@ public class Maze : MonoBehaviour
         }
         List<MapLocation> original = new List<MapLocation>(emptyPositions);
 
-        int r = Random.Range(0, emptyPositions.Count);
-        MapLocation playerLocation = emptyPositions.ElementAt(r);
+        int r = Random.Range(0, 4);
+        switch (r)
+        {
+            case 0:
+                playerPos = FindMostUpperLeftPoint();
+                break;
+            case 1:
+                playerPos = FindMostUpperRightPoint();
+                break;
+            case 2:
+                playerPos = FindMostLowerLeftPoint();
+                break;
+            case 3:
+                playerPos = FindMostLowerRightPoint();
+                break;
+        }
 
-        playerPos = new Vector3(playerLocation.x * scale, -1.7f,
-            playerLocation.z * scale);
         Instantiate(player, playerPos, Quaternion.identity);
-        emptyPositions.Remove(playerLocation);
 
         int cnt = 0;
         
@@ -144,7 +155,6 @@ public class Maze : MonoBehaviour
             if(emptyPositions.Count == 0)
             {
                 emptyPositions = new List<MapLocation>(original);
-                emptyPositions.Remove(playerLocation);
             }
 
             r = Random.Range(0, emptyPositions.Count);

@@ -48,8 +48,6 @@ public class UIController : MonoBehaviour
 
     private float escapePanelFlashTime;
 
-    public AudioClip pantSound;
-    private bool pantSound_isCalledOnce;
     public float StaminaConsumeSpeed;
     public float StaminaRecoverSpeed_Rest;
     public float StaminaRecoverSpeed_Walking;
@@ -144,18 +142,11 @@ public class UIController : MonoBehaviour
         if (stamina.value <= 0)
         {
             canDash = false;
-
-            if (!pantSound_isCalledOnce){
-                pantSound_isCalledOnce = true;
-                audioSource.PlayOneShot(pantSound);
-            }
         }
 
         if (stamina.value >= 0.5f)
         {
             canDash = true;
-
-            pantSound_isCalledOnce = false;
         }
 
         if (canDash)
