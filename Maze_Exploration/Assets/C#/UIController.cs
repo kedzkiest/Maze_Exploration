@@ -55,6 +55,7 @@ public class UIController : MonoBehaviour
     public float StaminaRecoverSpeed_Walking;
 
     public AudioClip DestroyCharged;
+    public AudioClip DestroySound;
     public float DestroyRechargeSpeed;
     private bool DestroyRechargeSound_isCalledOnce;
 
@@ -231,6 +232,7 @@ public class UIController : MonoBehaviour
                 if (tag == "UnbreakableWall") return;
 
                 Destroy(clickedGameObject);
+                audioSource.PlayOneShot(DestroySound);
                 GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
                 foreach (GameObject enemy in enemies) {
                     enemy.GetComponent<RunningEnemyController>().VisitDestination(clickedGameObject.transform.position);

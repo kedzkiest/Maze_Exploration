@@ -54,12 +54,27 @@ public class SceneChanger : MonoBehaviour
         StartCoroutine(nameof(Enu_LoadMain));
     }
 
+    public void ChangeToTutorial()
+    {
+        blackPanel.enabled = true;
+        blacken = true;
+        audioSource.PlayOneShot(EnterMaze);
+        //loadImage.SetActive(true);
+        StartCoroutine(nameof(Enu_LoadTutorial));
+    }
+
     IEnumerator Enu_LoadMain()
     {
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene("Main");
     }
-    
+
+    IEnumerator Enu_LoadTutorial()
+    {
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene("Tutorial");
+    }
+
 
     public void LoadTitle()
     {
