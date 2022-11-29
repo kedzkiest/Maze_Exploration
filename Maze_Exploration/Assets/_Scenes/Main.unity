@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.0023785485, g: 0.011330594, b: 0.05542258, a: 1}
+  m_IndirectSpecularColor: {r: 0.0013201889, g: 0.0066624116, b: 0.033044036, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -619,7 +619,7 @@ MonoBehaviour:
   runningEnemy: {fileID: 8779065626899572591, guid: 5c7051d924fd8b945a0feffa342525b8, type: 3}
   minimumDistanceToGoal: 50
   maximumDistanceToGoal: 100
-  numberOfRunningEnemies: 15
+  numberOfRunningEnemies: 0
 --- !u!114 &1005088013
 MonoBehaviour:
   m_ObjectHideFlags: 0
