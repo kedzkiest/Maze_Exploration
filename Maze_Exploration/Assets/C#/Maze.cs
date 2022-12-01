@@ -7,6 +7,7 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UIElements;
+using UnityStandardAssets.Characters.FirstPerson;
 using Random = UnityEngine.Random;
 
 public class MapLocation       
@@ -114,6 +115,7 @@ public class Maze : MonoBehaviour
     void InitialisePositions()
     {
         Vector3 playerPos = Vector3.zero, goalPos;
+
         for (int z = 0; z < depth; z++)
         {
             for (int x = 0; x < width; x++)
@@ -144,7 +146,8 @@ public class Maze : MonoBehaviour
                 break;
         }
 
-        Instantiate(player, playerPos, Quaternion.identity);
+        player.transform.position = playerPos;
+        player.gameObject.SetActive(true);
 
         int cnt = 0;
         
@@ -255,7 +258,4 @@ public class Maze : MonoBehaviour
 
         return answerPoint * scale;
     }
-    
-    
-    
 }
