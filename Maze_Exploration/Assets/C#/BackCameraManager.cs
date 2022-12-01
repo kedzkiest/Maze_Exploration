@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class BackCameraManager : MonoBehaviour
 {
     [SerializeField] private Camera backCamera;
+    [SerializeField] private GameObject[] hideOnBackCameraEnabled;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,13 @@ public class BackCameraManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyUp(KeyCode.Tab))
         {
             backCamera.enabled = !backCamera.enabled;
+
+            for(int i = 0; i < hideOnBackCameraEnabled.Length; i++)
+            {
+                hideOnBackCameraEnabled[i].GetComponent<SkinnedMeshRenderer>().shadowCastingMode = backCamera.enabled ?
+                    UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly :
+                    UnityEngine.Rendering.ShadowCastingMode.On;
+            }
         }
     }
 }
