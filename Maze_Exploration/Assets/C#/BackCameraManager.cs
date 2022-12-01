@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class BackCamera : MonoBehaviour
+public class BackCameraManager : MonoBehaviour
 {
     public Camera backCamera;
-
     public Camera mainCamera;
+
+    public SkinnedMeshRenderer[] hideOnBackCameraEnabled;
+    private bool isBackCameraON = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +22,13 @@ public class BackCamera : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyUp(KeyCode.Tab))
         {
+            isBackCameraON = !isBackCameraON;
+
+            foreach(SkinnedMeshRenderer s in hideOnBackCameraEnabled)
+            {
+                s.enabled = !isBackCameraON;
+            }
+            
             backCamera.enabled = !backCamera.enabled;
         }
 

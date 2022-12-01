@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.003311847, g: 0.017450016, b: 0.0846702, a: 1}
+  m_IndirectSpecularColor: {r: 0.0018385353, g: 0.00804047, b: 0.03990901, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!137 &463598923 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6911434945592683492, guid: 5092485dadc8604459201abc9396b4f5, type: 3}
+  m_PrefabInstance: {fileID: 7869041873723858731}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &589238845
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,6 +768,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!137 &1420386091 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6911434945592683494, guid: 5092485dadc8604459201abc9396b4f5, type: 3}
+  m_PrefabInstance: {fileID: 7869041873723858731}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1959713858
 GameObject:
   m_ObjectHideFlags: 0
@@ -1205,13 +1215,53 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 936188546412090355, guid: 5092485dadc8604459201abc9396b4f5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279647697951309781, guid: 5092485dadc8604459201abc9396b4f5, type: 3}
+      propertyPath: hideOnBackCameraEnabled.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279647697951309781, guid: 5092485dadc8604459201abc9396b4f5, type: 3}
+      propertyPath: hideOnBackCameraEnabled.Array.data[0]
+      value: 
+      objectReference: {fileID: 1420386091}
+    - target: {fileID: 4279647697951309781, guid: 5092485dadc8604459201abc9396b4f5, type: 3}
+      propertyPath: hideOnBackCameraEnabled.Array.data[1]
+      value: 
+      objectReference: {fileID: 463598923}
     - target: {fileID: 6911434945588368674, guid: 5092485dadc8604459201abc9396b4f5, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6911434945592683494, guid: 5092485dadc8604459201abc9396b4f5, type: 3}
+      propertyPath: m_Quality
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6911434945592683494, guid: 5092485dadc8604459201abc9396b4f5, type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: 0.1700169
+      objectReference: {fileID: 0}
+    - target: {fileID: 6911434945592683494, guid: 5092485dadc8604459201abc9396b4f5, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.63338137
+      objectReference: {fileID: 0}
+    - target: {fileID: 6911434945592683494, guid: 5092485dadc8604459201abc9396b4f5, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6911434945597733738, guid: 5092485dadc8604459201abc9396b4f5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6911434945597892362, guid: 5092485dadc8604459201abc9396b4f5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6911434945597892516, guid: 5092485dadc8604459201abc9396b4f5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5092485dadc8604459201abc9396b4f5, type: 3}
