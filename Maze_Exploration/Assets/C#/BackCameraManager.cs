@@ -5,11 +5,7 @@ using UnityEngine.AI;
 
 public class BackCameraManager : MonoBehaviour
 {
-    public Camera backCamera;
-    public Camera mainCamera;
-
-    public SkinnedMeshRenderer[] hideOnBackCameraEnabled;
-    private bool isBackCameraON = false;
+    [SerializeField] private Camera backCamera;
 
     // Start is called before the first frame update
     void Start()
@@ -22,17 +18,7 @@ public class BackCameraManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyUp(KeyCode.Tab))
         {
-            isBackCameraON = !isBackCameraON;
-
-            foreach(SkinnedMeshRenderer s in hideOnBackCameraEnabled)
-            {
-                s.enabled = !isBackCameraON;
-            }
-            
             backCamera.enabled = !backCamera.enabled;
         }
-
-        backCamera.transform.position = mainCamera.transform.position;
-        backCamera.transform.localRotation = Quaternion.Euler(mainCamera.transform.localRotation.x,mainCamera.transform.localRotation.y + 180, mainCamera.transform.localRotation.z);
     }
 }

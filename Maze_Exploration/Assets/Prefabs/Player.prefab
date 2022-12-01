@@ -485,7 +485,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &936188546411728851
 Transform:
   m_ObjectHideFlags: 0
@@ -799,14 +799,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4279647697951309787}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 936188546411728851}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!20 &4279647697951309782
 Camera:
   m_ObjectHideFlags: 0
@@ -863,7 +863,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backCamera: {fileID: 4279647697951309782}
-  mainCamera: {fileID: 936188546412286419}
 --- !u!114 &4279647698132589997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -991,10 +990,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3665413956460129318, guid: 60f6e788ed5c60e448e3aa84c8245c92, type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: 0.1700169
+      objectReference: {fileID: 0}
+    - target: {fileID: 3665413956460129318, guid: 60f6e788ed5c60e448e3aa84c8245c92, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.63338137
+      objectReference: {fileID: 0}
     - target: {fileID: 3665413956464366306, guid: 60f6e788ed5c60e448e3aa84c8245c92, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 11aca4f0557928546a91868d65678ab6, type: 2}
+    - target: {fileID: 3665413956464366306, guid: 60f6e788ed5c60e448e3aa84c8245c92, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60f6e788ed5c60e448e3aa84c8245c92, type: 3}
 --- !u!4 &6911434945597733738 stripped
