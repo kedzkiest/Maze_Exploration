@@ -42,7 +42,7 @@ public class RunningEnemyController : MonoBehaviour
 
     public float infoUpdateFreq;
     private float distToPlayer;
-    private float angleToPlayer;
+    private float angleToPlayer = 180;
     private float elapsedTime;
 
     private readonly string[] deathReason =
