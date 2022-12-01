@@ -151,7 +151,7 @@ public class Maze : MonoBehaviour
 
         int cnt = 0;
         
-        while (true)
+        while (cnt < numberOfRunningEnemies)
         {
             // if there is no empty position for spawn, then reuse the positions that is already used
             if(emptyPositions.Count == 0)
@@ -169,10 +169,21 @@ public class Maze : MonoBehaviour
                 cnt++;
                 emptyPositions.Remove(emptyPositions.ElementAt(r));
             }
-
-            if (cnt >= numberOfRunningEnemies) break;
         }
-        
+
+        emptyPositions = new List<MapLocation>(original);
+
+        while (true)
+        {
+            goalPos = new Vector3(emptyPositions.ElementAt(r).x * scale, -3.0f,
+                emptyPositions.ElementAt(r).z * scale);
+            if (Vector3.Distance(playerPos, goalPos) >= minimumDistanceToGoal &&
+               Vector3.Distance(playerPos, goalPos) <= maximumDistanceToGoal)
+            {
+                break;
+            }
+        }
+
         Instantiate(goalLight, goalPos, Quaternion.Euler(-90, 0, 0));
     }
 
