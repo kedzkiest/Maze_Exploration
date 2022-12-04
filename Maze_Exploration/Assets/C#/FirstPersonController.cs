@@ -209,12 +209,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Camera.transform.localPosition = newCameraPosition;
         }
 
-
+        private float horizontal;
+        private float vertical;
         private void GetInput(out float speed)
         {
             // Read input
-            float horizontal = CrossPlatformInputManager.GetAxis("Horizontal");
-            float vertical = CrossPlatformInputManager.GetAxis("Vertical");
+            horizontal = CrossPlatformInputManager.GetAxis("Horizontal");
+            vertical = CrossPlatformInputManager.GetAxis("Vertical");
 
             bool waswalking = m_IsWalking;
 
@@ -271,6 +272,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 return;
             }
             body.AddForceAtPosition(m_CharacterController.velocity*0.1f, hit.point, ForceMode.Impulse);
+        }
+
+        public float GetHorizontalInput()
+        {
+            return horizontal;
+        }
+
+        public float GetVerticalInput()
+        {
+            return vertical;
         }
     }
 }
