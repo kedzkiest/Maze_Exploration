@@ -937,6 +937,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ethan
       objectReference: {fileID: 0}
+    - target: {fileID: 3665413956454850766, guid: 60f6e788ed5c60e448e3aa84c8245c92, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3665413956455349418, guid: 60f6e788ed5c60e448e3aa84c8245c92, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1001,6 +1005,10 @@ PrefabInstance:
       propertyPath: m_AABB.m_Extent.x
       value: 0.63338137
       objectReference: {fileID: 0}
+    - target: {fileID: 3665413956460129318, guid: 60f6e788ed5c60e448e3aa84c8245c92, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: eb8f1ac72321b6b409413f134231ae99, type: 2}
     - target: {fileID: 3665413956464366306, guid: 60f6e788ed5c60e448e3aa84c8245c92, type: 3}
       propertyPath: m_Controller
       value: 
