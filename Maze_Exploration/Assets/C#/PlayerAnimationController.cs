@@ -30,7 +30,7 @@ public class PlayerAnimationController : MonoBehaviour
 
         if (vertical == 0 && horizontal == 0)
         {
-            anim.SetBool("move_forard", false);
+            anim.SetBool("move_forward", false);
             anim.SetBool("move_backward", false);
             anim.SetBool("move_right", false);
             anim.SetBool("move_left", false);
@@ -43,7 +43,7 @@ public class PlayerAnimationController : MonoBehaviour
             anim.SetBool("move_right", false);
             anim.SetBool("move_left", false);
 
-            anim.SetBool("move_forard", true);
+            anim.SetBool("move_forward", true);
             return;
         }
         else if(vertical < 0)
