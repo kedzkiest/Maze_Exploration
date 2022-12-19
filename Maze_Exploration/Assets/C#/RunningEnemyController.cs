@@ -59,12 +59,12 @@ public class RunningEnemyController : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         agent = GetComponent<NavMeshAgent>();
         maze = GameObject.FindGameObjectWithTag("Maze").GetComponent<Recursive>();
-        
-        mostUpperLeftPoint = maze.FindMostUpperLeftPoint();
-        mostUpperRightPoint = maze.FindMostUpperRightPoint();
-        mostLowerRightPoint = maze.FindMostLowerRightPoint();
-        mostLowerLeftPoint = maze.FindMostLowerLeftPoint();
-        centerPoint = maze.FindMostCenterPoint();
+
+        mostUpperLeftPoint = maze.mostUpperLeftPoint;
+        mostUpperRightPoint = maze.mostUpperRightPoint;
+        mostLowerRightPoint = maze.mostLowerRightPoint;
+        mostLowerLeftPoint = maze.mostLowerLeftPoint;
+        centerPoint = maze.centerPoint;
 
         /* check position
         GameObject UpperLeft = GameObject.CreatePrimitive(PrimitiveType.Cube);

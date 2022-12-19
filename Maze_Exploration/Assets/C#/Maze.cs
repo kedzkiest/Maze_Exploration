@@ -50,7 +50,14 @@ public class Maze : MonoBehaviour
     public float minimumDistanceToGoal;
     public float maximumDistanceToGoal;
     public int numberOfRunningEnemies;
-    
+
+    public Vector3 mostUpperLeftPoint;
+    public Vector3 mostUpperRightPoint;
+    public Vector3 mostLowerLeftPoint;
+    public Vector3 mostLowerRightPoint;
+    public Vector3 centerPoint;
+
+
     void Awake()
     {
         InitialiseMap();
@@ -129,20 +136,26 @@ public class Maze : MonoBehaviour
         }
         List<MapLocation> original = new List<MapLocation>(emptyPositions);
 
+        mostUpperLeftPoint = FindMostUpperLeftPoint();
+        mostUpperRightPoint = FindMostUpperRightPoint();
+        mostLowerLeftPoint = FindMostLowerLeftPoint();
+        mostLowerRightPoint = FindMostLowerRightPoint();
+        centerPoint = FindCenterPoint();
+
         int r = Random.Range(0, 4);
         switch (r)
         {
             case 0:
-                playerPos = FindMostUpperLeftPoint();
+                playerPos = mostUpperLeftPoint;
                 break;
             case 1:
-                playerPos = FindMostUpperRightPoint();
+                playerPos = mostUpperRightPoint;
                 break;
             case 2:
-                playerPos = FindMostLowerLeftPoint();
+                playerPos = mostLowerLeftPoint;
                 break;
             case 3:
-                playerPos = FindMostLowerRightPoint();
+                playerPos = mostLowerRightPoint;
                 break;
         }
 
@@ -249,7 +262,7 @@ public class Maze : MonoBehaviour
         return new Vector3(answerPoint.x * scale, 0, answerPoint.z * scale);
     }
 
-    public Vector3 FindMostCenterPoint()
+    public Vector3 FindCenterPoint()
     {
         float minDiff = width * depth;
         Vector3 centerPoint = new Vector3(width/2.0f, 0, depth/2.0f);
