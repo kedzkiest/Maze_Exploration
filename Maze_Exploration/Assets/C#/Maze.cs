@@ -51,11 +51,11 @@ public class Maze : MonoBehaviour
     public float maximumDistanceToGoal;
     public int numberOfRunningEnemies;
 
-    public Vector3 mostUpperLeftPoint;
-    public Vector3 mostUpperRightPoint;
-    public Vector3 mostLowerLeftPoint;
-    public Vector3 mostLowerRightPoint;
-    public Vector3 centerPoint;
+    [HideInInspector] public Vector3 mostUpperLeftPoint;
+    [HideInInspector] public Vector3 mostUpperRightPoint;
+    [HideInInspector] public Vector3 mostLowerLeftPoint;
+    [HideInInspector] public Vector3 mostLowerRightPoint;
+    [HideInInspector] public Vector3 centerPoint;
 
 
     void Awake()
