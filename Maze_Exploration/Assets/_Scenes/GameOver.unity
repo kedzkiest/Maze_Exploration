@@ -477,6 +477,7 @@ GameObject:
   - component: {fileID: 248809122}
   - component: {fileID: 248809124}
   - component: {fileID: 248809123}
+  - component: {fileID: 248809125}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -546,6 +547,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 248809121}
   m_CullTransparentMesh: 1
+--- !u!114 &248809125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248809121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb2a191a243d6b40ac288c71fc83da0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JapaneseText: " - \u30BF\u30A4\u30C8\u30EB\u3078 -"
+  EnglishText: ' - Title -'
 --- !u!1 &445069445
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,6 +572,7 @@ GameObject:
   - component: {fileID: 445069446}
   - component: {fileID: 445069448}
   - component: {fileID: 445069447}
+  - component: {fileID: 445069449}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -626,6 +642,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 445069445}
   m_CullTransparentMesh: 1
+--- !u!114 &445069449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445069445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb2a191a243d6b40ac288c71fc83da0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JapaneseText: "- \u30EA\u30C8\u30E9\u30A4 -"
+  EnglishText: '- Retry -'
 --- !u!1 &744333937
 GameObject:
   m_ObjectHideFlags: 0
@@ -1318,6 +1348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit

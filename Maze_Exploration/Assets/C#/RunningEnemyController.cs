@@ -50,7 +50,11 @@ public class RunningEnemyController : MonoBehaviour
         "走り回る者に轢かれた",
         "走り回る者と交通事故を起こした",
         "走り回る者と正面衝突した",
-        "走り回る者に襲われた"
+        "走り回る者に襲われた",
+        "were run over by a runner",
+        "had a traffic accident with a runner",
+        "had a head-on collision with a runner",
+        "were attacked by a runner"
     };
 
     // Start is called before the first frame update
@@ -200,7 +204,14 @@ public class RunningEnemyController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" && !UIController.canEscape)
         {
-            GameOver.reason = "あなたは" + deathReason[Random.Range(0, 4)] + "...";
+            if (LanguageSelector.getCurrentLanguage == LanguageSelector.Language.JAPANESE)
+            {
+                GameOver.reason = "あなたは" + deathReason[Random.Range(0, 4)] + "...";
+            }
+            else if(LanguageSelector.getCurrentLanguage == LanguageSelector.Language.ENGLISH)
+            {
+                GameOver.reason = "You " + deathReason[Random.Range(4, 8)] + "...";
+            }  
             SceneManager.LoadScene("GameOver");
         }
     }

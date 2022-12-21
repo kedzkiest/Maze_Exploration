@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.0030330122, g: 0.015946547, b: 0.077826954, a: 1}
+  m_IndirectSpecularColor: {r: 0.0000031913928, g: 0.000014606979, b: 0.000071796414, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -939,6 +939,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1535098070107136422, guid: 1cc2bedb05cd1474dbb6a7036cdd886d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 700
+      objectReference: {fileID: 0}
+    - target: {fileID: 1535098070107136422, guid: 1cc2bedb05cd1474dbb6a7036cdd886d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 610
+      objectReference: {fileID: 0}
+    - target: {fileID: 1535098070107136422, guid: 1cc2bedb05cd1474dbb6a7036cdd886d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 490
+      objectReference: {fileID: 0}
     - target: {fileID: 1535098070795499906, guid: 1cc2bedb05cd1474dbb6a7036cdd886d, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -1033,6 +1045,25 @@ PrefabInstance:
       objectReference: {fileID: 126725694}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cc2bedb05cd1474dbb6a7036cdd886d, type: 3}
+--- !u!1 &1535098070225849458 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1535098070107136423, guid: 1cc2bedb05cd1474dbb6a7036cdd886d, type: 3}
+  m_PrefabInstance: {fileID: 1535098070225849457}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1535098070225849459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535098070225849458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb2a191a243d6b40ac288c71fc83da0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JapaneseText: "Q\u30AD\u30FC\u3067\u8131\u51FA"
+  EnglishText: Press Q to escape
 --- !u!1001 &1680770183176907590
 PrefabInstance:
   m_ObjectHideFlags: 0

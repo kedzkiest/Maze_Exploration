@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.644516, g: 0.650645, b: 0.795138, a: 1}
+  m_IndirectSpecularColor: {r: 0.6910344, g: 0.6905533, b: 0.8890395, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -220,6 +220,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 96546437}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &192287841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311132527121606131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb2a191a243d6b40ac288c71fc83da0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JapaneseText: "\u58C1\u3092\u7834\u58CA\u3059\u308B\u3068\n\u6575\u304C\u8FD1\u5BC4\u3063\u3066\u304F\u308B"
+  EnglishText: 'Enemies approach where
+
+    the wall is destroyed'
 --- !u!1001 &193592536
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -606,6 +622,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 411084530}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &456967179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311132527121606133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb2a191a243d6b40ac288c71fc83da0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JapaneseText: "Tab\u30AD\u30FC\u3067\n\u5F8C\u65B9\u30AB\u30E1\u30E9\u306EON\u30FBOFF"
+  EnglishText: 'Press Tab key to
+
+    turn on/off a rear camera'
 --- !u!1 &691401493
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,6 +684,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &720426136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311132527121606134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb2a191a243d6b40ac288c71fc83da0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JapaneseText: "\u30E9\u30A4\u30C8\u3092\u70B9\u3051\u3066\u3044\u308B\u3068\n\u6575\u306B\u6C17\u3065\u304B\u308C\u3084\u3059\u304F\u306A\u308B"
+  EnglishText: 'Enemies easilly find you
+
+    when your light is on'
 --- !u!1 &789703729
 GameObject:
   m_ObjectHideFlags: 0
@@ -1652,6 +1700,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1879612894}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1938228945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311132527121606132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb2a191a243d6b40ac288c71fc83da0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JapaneseText: "\u8D64\u30B2\u30FC\u30B8\u304CMAX\u306E\u3068\u304D\n\u5DE6\u30AF\u30EA\u30C3\u30AF\u3067\u58C1\u3092\u7834\u58CA"
+  EnglishText: 'L-click to destroy walls
+
+    when the red bar is full'
 --- !u!1 &2005124860
 GameObject:
   m_ObjectHideFlags: 0
@@ -2097,6 +2161,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -90.168
       objectReference: {fileID: 0}
+    - target: {fileID: 1311132527262392345, guid: 3af3e3c58d7667a45a71bd3bb3ccdb23, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1311132527381813092, guid: 3af3e3c58d7667a45a71bd3bb3ccdb23, type: 3}
       propertyPath: m_SizeDelta.x
       value: 840.5
@@ -2141,6 +2209,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1311132528276445864, guid: 3af3e3c58d7667a45a71bd3bb3ccdb23, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1311132528276445869, guid: 3af3e3c58d7667a45a71bd3bb3ccdb23, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -199.3799
@@ -2165,6 +2237,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1435678462949941313, guid: 3af3e3c58d7667a45a71bd3bb3ccdb23, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 180.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 1435678462949941313, guid: 3af3e3c58d7667a45a71bd3bb3ccdb23, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 50.002
+      objectReference: {fileID: 0}
     - target: {fileID: 1435678463215566721, guid: 3af3e3c58d7667a45a71bd3bb3ccdb23, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2172,6 +2252,22 @@ PrefabInstance:
     - target: {fileID: 1435678463215566721, guid: 3af3e3c58d7667a45a71bd3bb3ccdb23, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1435678463236931419, guid: 3af3e3c58d7667a45a71bd3bb3ccdb23, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 700
+      objectReference: {fileID: 0}
+    - target: {fileID: 1435678463236931419, guid: 3af3e3c58d7667a45a71bd3bb3ccdb23, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1435678463236931419, guid: 3af3e3c58d7667a45a71bd3bb3ccdb23, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 610
+      objectReference: {fileID: 0}
+    - target: {fileID: 1435678463236931419, guid: 3af3e3c58d7667a45a71bd3bb3ccdb23, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 490
       objectReference: {fileID: 0}
     - target: {fileID: 1435678463460990575, guid: 3af3e3c58d7667a45a71bd3bb3ccdb23, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2298,3 +2394,101 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd0097a15586bb549a45c25424a71892, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1311132527121606131 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1311132526751422017, guid: 3af3e3c58d7667a45a71bd3bb3ccdb23, type: 3}
+  m_PrefabInstance: {fileID: 1311132527121606129}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1311132527121606132 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1311132526300325372, guid: 3af3e3c58d7667a45a71bd3bb3ccdb23, type: 3}
+  m_PrefabInstance: {fileID: 1311132527121606129}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1311132527121606133 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1435678462566877908, guid: 3af3e3c58d7667a45a71bd3bb3ccdb23, type: 3}
+  m_PrefabInstance: {fileID: 1311132527121606129}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1311132527121606134 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1311132527381813093, guid: 3af3e3c58d7667a45a71bd3bb3ccdb23, type: 3}
+  m_PrefabInstance: {fileID: 1311132527121606129}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1311132527121606135 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1435678462949941312, guid: 3af3e3c58d7667a45a71bd3bb3ccdb23, type: 3}
+  m_PrefabInstance: {fileID: 1311132527121606129}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1311132527121606136 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1311132527823540643, guid: 3af3e3c58d7667a45a71bd3bb3ccdb23, type: 3}
+  m_PrefabInstance: {fileID: 1311132527121606129}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1311132527121606138 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1311132527262392345, guid: 3af3e3c58d7667a45a71bd3bb3ccdb23, type: 3}
+  m_PrefabInstance: {fileID: 1311132527121606129}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1311132527121606139 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1435678463236931418, guid: 3af3e3c58d7667a45a71bd3bb3ccdb23, type: 3}
+  m_PrefabInstance: {fileID: 1311132527121606129}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1311132527121606140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311132527121606135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb2a191a243d6b40ac288c71fc83da0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JapaneseText: "T\u30AD\u30FC\u3067\u30E9\u30A4\u30C8\u306EON\u30FBOFF"
+  EnglishText: "Press T key to \nturn on/off a light"
+--- !u!114 &1311132527121606141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311132527121606136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb2a191a243d6b40ac288c71fc83da0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JapaneseText: "WASD\u30AD\u30FC\u3067\u79FB\u52D5\n\u3055\u3089\u306BShift\u30AD\u30FC\u3067\u30C0\u30C3\u30B7\u30E5"
+  EnglishText: 'WASD keys to move
+
+    AND L-shift for dash'
+--- !u!114 &1311132527121606143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311132527121606138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb2a191a243d6b40ac288c71fc83da0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JapaneseText: "\u30B9\u30DA\u30FC\u30B9\u30AD\u30FC\u3067\u6B21\u3078"
+  EnglishText: Press Space to progress
+--- !u!114 &1311132527121606144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311132527121606139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb2a191a243d6b40ac288c71fc83da0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JapaneseText: "Q\u30AD\u30FC\u3067\u8131\u51FA"
+  EnglishText: Press Q to escape
