@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.63784003, g: 0.644805, b: 0.78260064, a: 1}
+  m_IndirectSpecularColor: {r: 0.644516, g: 0.650645, b: 0.795138, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -749,6 +749,68 @@ Transform:
   m_Father: {fileID: 691401494}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &901821161
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5911762540628020017, guid: 2e234f17bf905e6489a1950021a3075a, type: 3}
+      propertyPath: m_Name
+      value: DestroyEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911762540628020018, guid: 2e234f17bf905e6489a1950021a3075a, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911762540628020018, guid: 2e234f17bf905e6489a1950021a3075a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911762540628020018, guid: 2e234f17bf905e6489a1950021a3075a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911762540628020018, guid: 2e234f17bf905e6489a1950021a3075a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911762540628020018, guid: 2e234f17bf905e6489a1950021a3075a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911762540628020018, guid: 2e234f17bf905e6489a1950021a3075a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911762540628020018, guid: 2e234f17bf905e6489a1950021a3075a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911762540628020018, guid: 2e234f17bf905e6489a1950021a3075a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911762540628020018, guid: 2e234f17bf905e6489a1950021a3075a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911762540628020018, guid: 2e234f17bf905e6489a1950021a3075a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911762540628020018, guid: 2e234f17bf905e6489a1950021a3075a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e234f17bf905e6489a1950021a3075a, type: 3}
+--- !u!198 &901821162 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5911762540628020019, guid: 2e234f17bf905e6489a1950021a3075a, type: 3}
+  m_PrefabInstance: {fileID: 901821161}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1023970664
 GameObject:
   m_ObjectHideFlags: 0
@@ -2131,6 +2193,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1435678464460121972, guid: 3af3e3c58d7667a45a71bd3bb3ccdb23, type: 3}
+      propertyPath: DestroyEffect
+      value: 
+      objectReference: {fileID: 901821162}
     - target: {fileID: 1435678464460121979, guid: 3af3e3c58d7667a45a71bd3bb3ccdb23, type: 3}
       propertyPath: m_Pivot.x
       value: 0

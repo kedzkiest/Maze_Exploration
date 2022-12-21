@@ -49,6 +49,7 @@ public class UIController : MonoBehaviour
     public AudioClip DestroyCharged;
     public AudioClip DestroySound;
     public float DestroyRechargeSpeed;
+    public ParticleSystem DestroyEffect;
     private bool DestroyRechargeSound_isCalledOnce;
 
     private string currentSceneName;
@@ -209,6 +210,7 @@ public class UIController : MonoBehaviour
                 if (Physics.Raycast(ray, out hit))
                 {
                     clickedGameObject = hit.collider.gameObject;
+                    DestroyEffect.transform.position = hit.point;
                 }
                 else
                 {
@@ -220,6 +222,7 @@ public class UIController : MonoBehaviour
                 if (tag == "UnbreakableWall") return;
 
                 Destroy(clickedGameObject);
+                DestroyEffect.Emit(30);
                 audioSource.PlayOneShot(DestroySound);
                 GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
                 foreach (GameObject enemy in enemies) {
