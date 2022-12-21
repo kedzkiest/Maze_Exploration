@@ -30,8 +30,8 @@ public class UIController : MonoBehaviour
 
     private bool playMessagePopUpSound;
     
-    [CanBeNull] private GameObject  player;
-    [CanBeNull] private GameObject  goalLight;
+    private GameObject  player;
+    private GameObject  goalLight;
 
     private float distUpdateFreq = 0.3f;
     private float elapsedTimeForDist;
