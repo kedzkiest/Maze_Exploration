@@ -1,8 +1,8 @@
 # Maze_Exploration 
-#### This game is currently under development!  
+#### This game just had an early version released!
   
 Escape the maze without getting caught by the enemy! 
-![タイトルなし](https://user-images.githubusercontent.com/66341676/200102191-09dc0d92-01bf-4e21-a525-f283ff7eb9de.png)
+https://user-images.githubusercontent.com/66341676/208831387-78df6725-355a-4bac-a4a9-7d8f8fd624cc.mp4
 
 ### The link to the YouTube video
-https://www.youtube.com/watch?v=hRBmsNvB-II
+https://youtu.be/7A1ywJRpJ_M
