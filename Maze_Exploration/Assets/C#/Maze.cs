@@ -182,6 +182,7 @@ public class Maze : MonoBehaviour
 
         while (true)
         {
+            r = Random.Range(0, emptyPositions.Count);
             goalPos = new Vector3(emptyPositions.ElementAt(r).x * scale, -3.0f,
                 emptyPositions.ElementAt(r).z * scale);
             if (Vector3.Distance(playerPos, goalPos) >= minimumDistanceToGoal &&
