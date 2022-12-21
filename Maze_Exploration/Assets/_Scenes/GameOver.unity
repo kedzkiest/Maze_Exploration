@@ -560,7 +560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JapaneseText: " - \u30BF\u30A4\u30C8\u30EB\u3078 -"
-  EnglishText: ' - Title -'
+  EnglishText: '- Title -'
 --- !u!1 &445069445
 GameObject:
   m_ObjectHideFlags: 0
