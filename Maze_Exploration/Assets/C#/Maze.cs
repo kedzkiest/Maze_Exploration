@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Drawing;
+﻿using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UIElements;
-using UnityStandardAssets.Characters.FirstPerson;
 using Random = UnityEngine.Random;
 
 public class MapLocation       
